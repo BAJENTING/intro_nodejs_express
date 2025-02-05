@@ -9,6 +9,10 @@ app.use(express.static('public'));
 app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
+// Define a new route
+app.get('/about', (req, res) => {
+    res.send('About Us');
+});
 
 // Start the server
 app.listen(port, () => {
