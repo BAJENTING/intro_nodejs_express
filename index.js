@@ -25,11 +25,22 @@ app.get('/about', (req, res) => {
     res.send('About Us');
 });
 
+const items = ['Apple', 'Banana', 'Orange'];
+
+app.get('/items', (req, res) => {
+    res.json(items);
+});
+
 app.post('/submit', (req, res) => {
     const data = req.body;
     req.send(`Received: ${JSON.stringify(data)}`);
 });
 
+app.post('/items', (req, res) => {
+    const newItem = req.body.item;
+    items.push(newItem);
+    res.json(items)
+});
 
 // Start the server
 app.listen(port, () => {
